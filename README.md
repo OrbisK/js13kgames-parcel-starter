@@ -18,3 +18,7 @@ Build, minify, and inline the game to `./dist/inlined/index.html`.
 ### `yarn party`
 
 Build, minify, inline, and zip the game to `./dist/zipped/game.zip`. This command finishes with a log message that says if the zip file is under 13k.
+
+# Game Info
+
+Minify: https://compresspng.com/

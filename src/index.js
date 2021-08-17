@@ -1,26 +1,24 @@
 let { init, Sprite, GameLoop, SpriteSheet, initKeys, keyPressed, angleToTarget  } = kontra
-
 let { canvas } = init();
 
+// Initialise Keyboard Events
 initKeys();
-kontra.getContext().scale(5, 5);
 
-let sprite = Sprite({
-  x: 100,        // starting x,y position of the sprite
-  y: 80,
-  color: 'red',  // fill color of the sprite rectangle
-  width: 20,     // width and height of the sprite rectangle
-  height: 40,
-  dx: 2          // move the sprite 2px to the right every frame
-});
+// Scale Canvas
+SCALE = 6;
+kontra.getContext().scale(SCALE, SCALE);
 
+// Load Image Path
 kontra.setImagePath('assets');
+
+//First Load Image, then run Game
 kontra.load(
-  "person_sheet.png",
+  "person_sheet-min.png",
 ).then(
+
   function(){
     let spriteSheet = SpriteSheet({
-      image: kontra.imageAssets['person_sheet'],
+      image: kontra.imageAssets['person_sheet-min'],
       frameWidth: 7,
       frameHeight: 14,
       animations: {
@@ -29,12 +27,11 @@ kontra.load(
           loop: false,
         },
         walk: {
-          frames: '0..3',  // frames 0 through 9
+          frames: [0, 1, 2, 1],
           frameRate: 6,
         }
       }
     });
-    
 
     let sprite = Sprite({
       x: 10,
